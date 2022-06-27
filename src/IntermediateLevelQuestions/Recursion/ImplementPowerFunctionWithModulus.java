@@ -72,9 +72,9 @@ public class ImplementPowerFunctionWithModulus {
      */
 
     public static void main(String[] args) {
-        int A = -1;
-        int B = 1;
-        int C = 20;
+        int A = 213;
+        int B = 231;
+        int C = 1   ;
 
 
         /************************* Method 1 with explanation *************************************/
@@ -113,7 +113,7 @@ public class ImplementPowerFunctionWithModulus {
 
          so to avoid it we going to use it as explained below
          */
-        long ans = 0;
+     /*   long ans = 0;
        if(B%2==0){
             ans = powFun(A,B/2) * powFun(A,B/2);
            System.out.println(ans);
@@ -122,11 +122,19 @@ public class ImplementPowerFunctionWithModulus {
            System.out.println(ans);
        }
 
+      */
+
+
+        /************** Method 4   ********/
+
+        System.out.println(pow(A,B,C));
+
+
     }
 
 
 /************************ Method 1 function******************/
-    public static long powFun(int A, int B){
+ /*   public static long powFun(int A, int B){
         if(A==0){
             return 0;
         }
@@ -135,15 +143,56 @@ public class ImplementPowerFunctionWithModulus {
         }
         long ans = A * powFun(A,B-1);
         return ans;
-    }
+    } */
 
 
 
 
     /*
+         ************************ Method 2 **********************
+         Here  i am not writing power function for negative values of B as it is given that
+         B will always be >= 0
+         and cause there is no negative value of B so all answer will be in int ,no need to declare
+         double return type or double variables
 
      */
 
+  /*  public static int power(int x, int y){
+        if(y == 0 || x ==0){
+            return 1;
+        }
+        int temp = power(x,y/2);
+        if(y%2==0){
+            return temp * temp;
+        }else{
+            return x * temp * temp;
+        }
+
+        // Above function is also throwing TLE
+        // A = 213 B = 231 C =1
+    }
+    */
+
+    /******************* Method 4 :  Class Notes************/
+
+    public static int pow(int A, int B, int C){
+        if(A==0 || B==0){
+            return 1;
+        }
+        int temp = pow(A,B/2,C);
+        int even_ans = ((temp % C) * (temp % C))% C;
+        if((B&1)==0){
+            return (int)even_ans;
+        }else{
+            // now pow can also return negative value as well so,
+            int x = (int) ((Long.valueOf(A%C)*Long.valueOf(even_ans%C))%C);
+            if(x<0){
+                return C+x;
+            }else{
+                return x;
+            }
+        }
+    }
 
 
 
