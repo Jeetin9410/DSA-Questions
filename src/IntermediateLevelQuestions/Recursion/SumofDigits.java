@@ -26,6 +26,7 @@ public class SumofDigits {
         if(a==0){
             return 0;
         }
+      //  System.out.println(a%10+" "+a/10);
         return (a % 10 + sumOfDigits(a/10) );
     }
 }
