@@ -1,0 +1,53 @@
+
+
+    ******************************* LinkedList *************************************
+
+
+   Ques : What is LinkedList
+   Ans :  Unlike Arrays, LinkedList is also a linear data structure.
+          Unlike Arrays, LinkedList elements are not stored at a contiguous location, the element are linked using pointers.
+                                                    OR
+          LinkedList is a collection of Objects called nodes linked with pointer, where the nodes are randomly stored in
+          the memory.
+          A Node contains two fields ----> 1) Data field i.e (int,float,double,String or any type of data)
+                                     ----> 2) Pointer that contains address of next node in the memory.
+
+
+   Ques : Representation of Node
+
+   Ans :
+        class LinkedList{
+
+            class Node {
+
+                int data;
+                Node next;
+
+                Node(int data){
+                this.data = data;
+                next = null;
+                }
+
+            }
+
+        }
+
+
+        Visual implementation :
+
+
+        ________________
+        |          |   |
+        |  data    |  --------> Null
+        |__________|___|
+
+
+        }
+
+
+Linked List Complexity:
+Time Complexity
+Time Complexity	   Worst Case	  Average Case
+Search             	O(n)	        O(n)
+Insert	            O(1)	        O(1)
+Deletion	        O(1)	        O(1)
