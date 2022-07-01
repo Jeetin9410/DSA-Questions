@@ -1,4 +1,4 @@
-package IntermediateLevelQuestions.StackandQueues;
+package IntermediateLevelQuestions.StackandQueuesBasics;
 
 public class BalanceParantheses {
     /*
