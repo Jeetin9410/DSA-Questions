@@ -22,6 +22,7 @@ public class PreorderTraversal {
         tree.root.left.left = new TreeNode(5);
         tree.root.left.right = new TreeNode(6);
 
+        System.out.println("PreOrder Traversal");
         tree.preorder(tree.root);
     }
 
