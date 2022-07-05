@@ -1,0 +1,45 @@
+
+    *************************************** Tree Data Structure *************************************************
+
+    The data structure is a specialized method to organize and store data in the computer to be used more effectively.
+    There are various types of data structures, such as stack, linked list, and queue, arranged in sequential order.
+    For example, a linked data structure consists of a set of nodes that are linked together by links or points.
+
+    Similarly, the tree data structure is a kind of hierarchical data arranged in a tree-like structure.
+     It consists of a central node, structural nodes, and sub nodes, which are connected via edges.
+      We can also say that tree data structure has roots, branches, and leaves connected with one another.
+
+    A tree is non-linear and a hierarchical data structure consisting of a collection of nodes such that each node of
+     the tree stores a value, a list of references to nodes (the “children”)
+
+     ****************************  Why Tree Data Structure? ******************************************************
+
+     Other data structures such as arrays, linked list, stack, and queue are linear data structures that store data
+     sequentially.
+     In order to perform any operation in a linear data structure, the time complexity increases with the increase
+     in the data size.
+     But, it is not acceptable in today's computational world.
+
+     Different tree data structures allow quicker and easier access to the data as it is a non-linear data structure.
+
+     ********************************************* Terminologies **************************************************
+
+        Root :
+        It is the topmost node of a tree.
+
+        Height of a Node :
+        The height of a node is the number of edges from the node to the deepest leaf (ie. the longest path from the node to a leaf node).
+
+        Depth of a Node :
+        The depth of a node is the number of edges from the root to the node.
+
+        Height of a Tree :
+        The height of a Tree is the height of the root node or the depth of the deepest node.
+
+    ******************************************** Types of Tree ******************************************************
+
+    1) Binary Tree
+    2) Binary Search Tree
+    3) AVL Tree
+    4) B-Tree
+

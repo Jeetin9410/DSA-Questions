@@ -1,0 +1,39 @@
+
+
+************** Depending on the order in which we do this, there can be three types of traversal. *******************
+
+1) Inorder Traversal
+
+   First, visit all the nodes in the left subtree
+   Then the root node
+   Visit all the nodes in the right subtree
+
+   Psudeo code :
+
+   inorder(root.left)
+   display(root.data)
+   inorder(root.right)
+
+2) Preorder Traversal
+
+    Visit root node
+    Visit all the nodes in the left subtree
+    Visit all the nodes in the right subtree
+
+    Psudeo Code :
+
+    display(root.data)
+    preorder(root.left)
+    preorder(root.right)
+
+3) Postorder Traversal
+
+    Visit all the nodes in the left subtree
+    Visit all the nodes in the right subtree
+    Visit the root node
+
+    Psudeo Code :
+
+    postorder(root.left)
+    postorder(root.right)
+    postorder(root.data)
