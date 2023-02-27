@@ -1,0 +1,100 @@
+
+Height of Tree : Maximum distance possible from root of the tree TO Leaf node of tree.
+
+Example :
+                                     1
+                                   /    \
+                                  2      3
+                               /    \    \
+                               4    6     7
+                                      \
+                                       8
+
+      So for above given tree height is : 3
+
+      Ques : How to find this using code?
+
+      Ans :  for every node we are going to find
+             leftHeight and rightHeight till the leaf node is not encountered.
+             when leaf node encountered we will return 0
+
+
+
+      code :
+
+      public int maxDepth(Node node){
+
+      if(node == null){
+      return 0;
+      }
+
+      int leftHeight = maxDepth(node.left);
+      int rightHeight = maxDepth(node.right);
+
+      return 1 + Math.max(leftHeight,rightHeight);
+
+      }
+
+      Dry run :
+
+      for root node 1 :
+
+      1 + Max(maxDepth(2),maxDepth(3))
+
+      for node 2 :
+
+      maxDepth(2)--> 1 + Max(maxDepth(4),maxDepth(6))
+
+      now it will go to node 4 :
+
+      maxDepth(4) --> return 0 so , maxDepth(4) = 0
+
+      now it will go to node 6 :
+
+      maxDepth(6)--> 1 + Max(0,maxDepth(8))
+
+      now it will go  to 8 :
+
+      maxDepth(8) --> return 0
+      so maxDepth(8) = 0
+
+      now it will trace back
+
+      maxDepth(6) --> 1 + Max(0,0) = 1
+
+      maxDepth(2) = 1 + Max(0,1) = 2
+
+
+      now code will solve maxDepth(3) :
+
+      maxDepth(3) --> 1 + Max(0,maxDepth(7))
+
+      now it will solve maxDepth(7) :
+
+      maxDepth(7) :
+
+      maxDepth(7) --> return 0 = 0
+
+      so
+
+      MaxDepth(3) = 1 + Max(0,0) = 1
+
+
+      Now it will get back to
+
+      1 + Max(maxDepth(2),maxDepth(3))
+
+      where
+
+      1 + Max(2,1)
+
+      1+2
+
+      3
+      And 3 is the height of the tree.
+
+
+
+
+
+
