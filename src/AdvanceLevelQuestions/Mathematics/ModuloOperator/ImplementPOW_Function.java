@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics;
+package AdvanceLevelQuestions.Mathematics.ModuloOperator;
 
 public class ImplementPOW_Function {
     /*

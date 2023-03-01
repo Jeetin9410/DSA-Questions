@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics;
+package AdvanceLevelQuestions.Mathematics.ModuloOperator;
 
 public class ImplementPowerFunctionWithModulus {
     /*
@@ -12,9 +12,9 @@ public class ImplementPowerFunctionWithModulus {
         1 <= C <= 10^9
      */
     public static void main(String[] args) {
-        int A = -1;
-        int B = 1;
-        int C = 20;
+        int A = 12;
+        int B = 55557207;
+        int C = 55557209;
         // ans should be 19
 
         // first lets have basic pow function
@@ -82,11 +82,11 @@ public class ImplementPowerFunctionWithModulus {
             return 0;
         if(B==0)
             return 1;
-        int ans = pow(A,B/2,C);
+        int ans = pow(A,B/2,C)%C;
         if(B%2==0){
-            ans = ans*ans;
+            ans = (ans*ans)%C;
         }else{
-            ans = ans*ans*A;
+            ans = ((ans*ans)%C * A)%C;
         }
         return (ans+C)%C;
     }

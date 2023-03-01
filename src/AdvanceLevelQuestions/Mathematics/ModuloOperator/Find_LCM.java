@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics;
+package AdvanceLevelQuestions.Mathematics.ModuloOperator;
 
 public class Find_LCM {
     public static void main(String[] args) {

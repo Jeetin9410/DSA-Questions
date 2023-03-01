@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics;
+package AdvanceLevelQuestions.Mathematics.ModuloOperator;
 
 public class ModularMultiplicativeInverse {
     /*
@@ -37,8 +37,8 @@ public class ModularMultiplicativeInverse {
 
     public static void main(String[] args) {
 
-        int A = 6;
-        int B = 23;
+        int A = 12;
+        int B = 55557209;
 
         // find X in  AX = 1(mod B).
 
@@ -99,10 +99,11 @@ public class ModularMultiplicativeInverse {
             return 1;
         int ans = power(A,B/2,M)%M;
         if(B%2==0){
-            return (ans * ans)%M;
+            ans = (ans * ans)%M;
         }else{
-            return ((ans * ans)%M * A)%M;
+            ans= ((ans * ans)%M * A)%M;
         }
+        return (int)ans;
     }
 
 

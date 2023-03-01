@@ -1,5 +1,6 @@
-package AdvanceLevelQuestions.Mathematics;
+package AdvanceLevelQuestions.Mathematics.ModuloOperator;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class CountNoOfPairs_VeryGoodQues {
@@ -11,8 +12,8 @@ public class CountNoOfPairs_VeryGoodQues {
      */
     public static void main(String[] args) {
 
-        int[] A = {29,11,21,17,2,5,4,6,23,13,26,14,18,15,30,35,50,20,40};
-        int M = 10;
+        int[] A = {1,2,3,4,5};
+        int M = 2;
 
         // Brute force
      /*   int count = 0;
@@ -130,27 +131,49 @@ public class CountNoOfPairs_VeryGoodQues {
 
          */
 
-        int pairsCount= 0;
+        long pairsCount= 0;
 
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+      /*
+
+         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         // reminder will be in range [0,9]
         // mapping reminder and the total no of element they are obtained from.
 
-        for(int i = 0; i< A.length;i++){
+      for(int i = 0; i< A.length;i++){
             if(map.containsKey(A[i]%M)){
                 map.put(A[i]%M, map.get(A[i]%M)+1);
             }else{
                 map.put(A[i]%M,1);
             }
+        } */
+
+         /*
+                          THE ERROR IN ABOVE LOGIC
+
+                          WHAT IF THERE IS NO 0 REMINDER FOR GIVEN ARRRAY,THEN IT WILL CRASH
+                          SO TO CORRECT THAT WE WILL RECORD VALUES FOR ALL VALUES OF REMINDER
+                          NOW THIS CAN BE DONE USING ARRAY OR HASHMAP
+
+                          BOTH WILL TAKE SAME SPACE
+
+          */
+
+
+
+        long[] count = new long[M];
+
+        Arrays.fill(count,0);
+
+        for(int i =0;i<A.length;i++){
+            int rem = A[i] % M;
+            count[rem]++;
         }
 
-//        for(int val : map.keySet()){
-//            System.out.println(map.get(val));
-//        }
 
-        //  for reminder 0
+        //  for STARTING INDEX, IT NEED NOT TO BE 0 EVERY TIME
 
-        int a = map.get(0);
+        long a = count[0];
         pairsCount += (a*(a-1))/2;
 
         // for reminder > 0
@@ -158,7 +181,7 @@ public class CountNoOfPairs_VeryGoodQues {
         int i =1 , j = M-1;
 
         while(i<j){
-            pairsCount += map.get(i) * map.get(j);
+            pairsCount += count[i] * count[j];
             i++;
             j--;
         }
@@ -166,11 +189,11 @@ public class CountNoOfPairs_VeryGoodQues {
         // for middle index condition
 
         if(M%2==0){
-            int val = map.get(M/2);
+            long val = count[M/2];
             pairsCount += (val*(val -1))/2;
         }
 
-        System.out.println(pairsCount);
+        System.out.println(pairsCount%1000000007);
 
         /// CORRECT ANSWER
 

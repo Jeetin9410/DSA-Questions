@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics;
+package AdvanceLevelQuestions.Mathematics.ModuloOperator;
 
 public class GCD_of_more_than_two_numbers {
     /*
