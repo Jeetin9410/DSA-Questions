@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics;
+package AdvanceLevelQuestions.Mathematics.PrimeNumberQuestions;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;

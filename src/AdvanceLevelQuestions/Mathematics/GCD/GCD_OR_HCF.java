@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics.ModuloOperator;
+package AdvanceLevelQuestions.Mathematics.GCD;
 
 public class GCD_OR_HCF {
     /*

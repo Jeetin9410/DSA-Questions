@@ -9,7 +9,8 @@ public class isPrimeNumber {
          */
         System.out.println(isPrime(num));
     }
-    public static boolean isPrime(int n){
+    public static boolean isPrime(int n){     /// This method is SIMILAR to find the factors of given number.
+
         if(n<=1)
             return false;
 
