@@ -1,9 +1,8 @@
-package IntermediateLevelQuestions.Recursion;
+package AdvanceLevelQuestions.Recursion;
 
-public class IsMagicalNmber {
+public class IsMagicalNumber {
     /*
-    Problem Description :
-Given a number A, check if it is a magic number or not.
+    Given a number A, check if it is a magic number or not.
 
 A number is said to be a magic number if the sum of its digits is calculated till a single digit recursively
 by adding the sum of the digits after every addition.
@@ -27,21 +26,49 @@ Output 2:  0
                      Single digit is 1, so it's a magic number. Return 1.
 
                     Explanation 2:
-
                      Sum of digits of (1291) = 13
                      Sum of digits of (13) = 4
                      Single digit is not 1, so it's not a magic number. Return 0.
 
+     */
 
-*/
+    public static void main(String[] args) {
 
-    public static void main(String[] args) {    
-        int A = 83557;
-        System.out.println(solve(A));
+        int A= 83557;
+
+        int temp = sumOfDigits(A);
+
+        while(temp%10!=temp){       // this condition I forgot
+            temp = sumOfDigits(temp);
+        }
+
+        System.out.println(temp);
+
+
     }
-    public static int solve(int A){
-        if(A%10==A) return A;
-        return solve(solve(A%10 + solve(A/10)));
+
+    public static int sumOfDigits(int num){
+        int count = 0; // to count no of digits in num
+        int temp = num;
+        while(temp!=0){
+            temp /= 10;
+            count++;
+
+        }
+
+        int div = (int)Math.pow(10,count--);
+        int sum = 0;
+        while(div!=0){
+            int digit = num/div;
+            sum = sum + digit;
+
+            num = num%div;
+            div/=10;
+
+        }
+
+        return sum;
     }
+
 
 }
