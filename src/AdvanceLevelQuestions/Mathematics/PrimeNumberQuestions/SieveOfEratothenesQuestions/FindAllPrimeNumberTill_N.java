@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Mathematics.PrimeNumberQuestions;
+package AdvanceLevelQuestions.Mathematics.PrimeNumberQuestions.SieveOfEratothenesQuestions;
 
 import java.util.Arrays;
 
