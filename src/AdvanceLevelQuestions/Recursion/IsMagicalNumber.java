@@ -44,7 +44,6 @@ Output 2:  0
 
         System.out.println(temp);
 
-
     }
 
     public static int sumOfDigits(int num){
