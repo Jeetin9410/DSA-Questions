@@ -1,6 +1,8 @@
 package AdvanceLevelQuestions.Mathematics.PrimeNumberQuestions;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class LuckyNumbers {
     /*
@@ -34,24 +36,63 @@ Output 2: 3
 
          */
 
-        int A= 12;
 
-        int[] factor = findFactorsTillN(A);
+
+        int A= 3;
+
+        if(A<4){
+            System.out.println(0);
+            return;
+        }
+
+        int[] prime = PrimeNumberTillN(A);
+       int ans = ModifiedSieveOfErastosethenes(A,prime);
+
+        System.out.println(ans);
 
     }
 
-    public static int[] findFactorsTillN(int N){
+    public static int ModifiedSieveOfErastosethenes(int A,int[] isPrime){
+        // instead of storing the number is prime or not we will store how many time it got divided by other numbers
+        int[] ans = new int[A+1];
+        Arrays.fill(ans,0);
+        ///// here we stored the number of prime factor these number have,
 
-        int[] primeFactors = new int[N+1];
+        /*
+          AS we have hardcoded data for some values i.e i<4 this code will give runtime error so add this edge cases saperate
+         */
+        ans[0] = 0;
+        ans[1] = 0;
+        ans[2] = 1;
+        ans[3] = 1;
+        for(int i=2;i<=A;i++){
+                for(int j=2*i;j<=A;j+=i){       // here we are going same as sieve of Erathosenes but couting the factors
+                    if(isPrime[i]==1){          // at this step we are checking the factor is prime or not if yes then only we are increasing its count;
+                        ans[j]++;
+                    }
+                }
+        }
 
-        Arrays.fill(primeFactors,1);  // marking all number till N as prime
 
-        for(int i = 2; i<=N;i++){
-            for(int j = 2*i; j<=N;j+=i){
-                primeFactors[j] = 0;
+        int count = 0;
+        for(int i = 0;i< ans.length;i++){
+            if(ans[i]==2){
+                count++;
             }
         }
 
-        return primeFactors;
+        return count;
+
+    }
+
+    public static int[] PrimeNumberTillN(int A){
+        int[] ans =new int[A+1];
+        Arrays.fill(ans,1);
+        for(int i=2;i<=A;i++){
+            for(int j=2*i;j<=A;j+=i){
+                ans[j] = 0;
+            }
+        }
+        return ans;
     }
 }
