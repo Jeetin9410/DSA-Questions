@@ -35,7 +35,7 @@ Explanation 2:
 
     public static void main(String[] args) {
 
-        int A = 152364;
+        int A = 1000000000;
 
         /*       CONCEPT
 
