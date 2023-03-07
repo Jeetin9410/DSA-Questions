@@ -1,0 +1,56 @@
+
+Ques : What is stability in algorithm?
+Ans:   Stability in sorting algorithm stands for the property of that sorting algorithm to maintain the relative order
+       of items with same values.
+
+---> Stable Sorting Algorithm :
+
+ Stable sorting algorithm maintains the relative order of the items with equal sort keys.
+ An unstable sorting algorithm does not. In other words, when a collection is sorted with a stable sorting algorithm,
+ items with the same sort keys preserve their order after the collection is sorted.
+
+ Example :  Sorting by Grade , Highest first
+                Before
+         Name            Grade                 Name            Grade
+         Dave              C                   Fabian            A
+         Earl              B                   Greg              A
+         Fabian            A       --->        Harry             A
+         Gill              B                   Earl              B
+         Greg              A                   Gill              B
+         Harry             A                   Dave              C
+
+         Observation :
+          After sorting
+            For A  Fabian , Greg and Harry
+            For B as well  Earl and gill are in same order.
+
+    This trend means that this sorting algorithm is stable.
+
+ ---> Unstable Sorting Algorithm
+
+ Example :  Sorting by Name , Alphabetically
+                 Before
+          Name            Grade              Name             Grade
+          Fabian            A                Dave               C
+          Greg              A                Earl               B
+          Harry             A     --->       Fabian             A
+          Earl              B                Gill               B
+          Gill              B                Greg               A
+          Dave              C                Harry              A
+
+          here Gill and Greg are not in the same order before and after
+
+          This is unstable sorting algorithm.
+
+
+          Here are a few common sorting algorithms and their stability:
+
+          Insertion Sort — Stable
+          Selection Sort — Unstable
+          Bubble Sort — Stable
+          Merge Sort — Stable
+          Shell Sort — Unstable
+          Timsort — Stable
+
+
+
