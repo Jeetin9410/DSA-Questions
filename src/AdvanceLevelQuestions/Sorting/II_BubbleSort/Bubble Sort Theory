@@ -1,0 +1,115 @@
+
+Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements
+if they are in the wrong order.
+This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high.
+
+How does Bubble Sort Work?
+
+Input: arr[] = {5, 1, 4, 2, 8}
+
+First Pass:
+
+Bubble sort starts with very first two elements, comparing them to check which one is greater.
+( 5 1 4 2 8 ) –> ( 1 5 4 2 8 ), Here, algorithm compares the first two elements, and swaps since 5 > 1.
+( 1 5 4 2 8 ) –>  ( 1 4 5 2 8 ), Swap since 5 > 4
+( 1 4 5 2 8 ) –>  ( 1 4 2 5 8 ), Swap since 5 > 2
+( 1 4 2 5 8 ) –> ( 1 4 2 5 8 ), Now, since these elements are already in order (8 > 5), algorithm does not swap them.
+Second Pass:
+
+
+Now, during second iteration it should look like this:
+( 1 4 2 5 8 ) –> ( 1 4 2 5 8 )
+( 1 4 2 5 8 ) –> ( 1 2 4 5 8 ), Swap since 4 > 2
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) –>  ( 1 2 4 5 8 )
+Third Pass:
+
+Now, the array is already sorted, but our algorithm does not know if it is completed.
+The algorithm needs one whole pass without any swap to know it is sorted.
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+( 1 2 4 5 8 ) –> ( 1 2 4 5 8 )
+
+
+Algorithm:
+
+Follow the below steps to solve the problem:
+
+1)Run a nested for loop to traverse the input array using two variables i and j,
+  such that 0 ≤ i < n-1 and 0 ≤ j < n-i-1
+2)If arr[j] is greater than arr[j+1] then swap these adjacent elements, else move on
+3)Print the sorted array
+
+
+
+Points to remember while writing code :
+
+--> There are going to be 2 nested for loop
+--> Outer loop will decide :  how many times we need to do iteration for sorting the algorithm
+    Inner loop will decide : Swapping of numbers
+
+    Q: How many times we need to do outer iteration?
+    Ans : In Bubble sort, we observe that for every complete iteration, the highest element
+          of the array(at that particular  instance of time) get placed to its right place i.e at the end of array
+
+          the outer loop will run till  < n-1. WHY?
+          Otherwise array out of bound. for n-1 there will be no index n to swap the number.
+
+   Q: How many times we need to do the inner iteration?
+   Ans: for every index i, we need to swap till n-2 index.
+        Cause after that the number is already on its right place.
+        so for every i, j < n-i-1
+
+        index i = 0              j will go till  n-i-1= n-1
+              i = 1             j <  n-i-1 = n-2
+              and so on.....
+
+
+    Code :
+
+    given int[] arr
+
+    int n = arr.length();
+
+    for(int i=0;i<n-1;i++){
+        for(int j = 0; j < n-i-1; j++){
+            if(arr[j] > arr[j+1)){
+                swap(arr[j] , arr[j+1]);
+            }
+        }
+    }
+
+    The Worst case TC : entire array is not sorted
+                        total iterations will be
+                        n(n-1) / 2
+                        that will be
+                        O(N*N)
+
+    BUT WHAT IF THE ARRAY IS ALREADY SORTED?
+    So in that case we need not to swap
+    and that case we do only N iterations.
+
+    to solve that we will keep track if we swapped any pair or not.
+    If we swapped even 1 pair that means the given array was not sorted already.
+
+
+    Final modified code :
+
+    int n = arr.length();
+    boolean swapped = false;
+        for(int i=0;i<n-1;i++){
+            for(int j = 0; j < n-i-1; j++){
+                if(arr[j] > arr[j+1)){
+
+                    swapped = true;
+                    swap(arr[j] , arr[j+1]);
+                }
+            }
+            if(swapped == false){
+             break;
+            }
+        }
+
+
+
