@@ -1,6 +1,5 @@
 package IntermediateLevelQuestions.TreesBasics;
 
-import com.sun.source.tree.Tree;
 
 public class PostorderTraversal {
     
