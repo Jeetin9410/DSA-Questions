@@ -4,51 +4,60 @@ import java.util.Arrays;
 
 public class MergeTwoSortedArrays {
     public static void main(String[] args) {
-        int[] A = {1, 3, 4, 5};
+        int[] A = {1, 3, 5, 7};
         int[] B = {2, 4, 6, 8};
 
-        int Alen = A.length;
-        int Blen = B.length;
+        //Method 1: Using inbuilt libraries
+        /*
+           --> we will create a array
+               lets int[] C = new int[A.len+B.len]
+           --> put every element of A and B in C
+           --> Arrays.sort(C)
 
-        int[] C = MergeSort(A,B,Alen,Blen);
+         */
 
-        System.out.println(Arrays.toString(C));
+         //Method 2 : we going to use 2 indices, each for each array.
+        /*
+           suppose i denote index for array A and
+                   j denote index for array B
+
+                   k index for final answer array C
+
+            Then while loop i-->A.len and j-->B.len
+             compare A[i] and B[j] and put
+             C[k] =  min( A[i], B[j] )
 
 
-    }
-
-    public static int[] MergeSort(int[] A, int[] B,int Alen, int Blen){
-
+         */
         int i = 0;
         int j = 0;
         int k = 0;
-        int[] ans = new int[Alen+Blen];
-
-
-
-        while(i<Alen && j<Blen){
-
+        int[] C = new int[A.length + B.length];
+        while (i<A.length && j<B.length){
             if(A[i] < B[j]){
-                ans[k] = A[i];
-                i++;
+                C[k] = A[i];
                 k++;
+                i++;
             }else{
-                ans[k] = B[j];
+                C[k] = B[j];
                 k++;
                 j++;
             }
-
         }
 
-        while(i < Alen){
-            ans[k++] = A[i++];
-
+        while(i < A.length){
+            C[k] = A[i];
+            k++;
+            i++;
         }
 
-        while(j < Blen){
-            ans[k++] = B[j++];
+        while(j < B.length){
+            C[k] = B[j];
+            k++;
+            j++;
         }
 
-        return ans;
+        System.out.println(Arrays.toString(C));
+
     }
 }
