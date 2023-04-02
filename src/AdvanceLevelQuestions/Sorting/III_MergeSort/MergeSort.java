@@ -3,17 +3,19 @@ package AdvanceLevelQuestions.Sorting.III_MergeSort;
 import java.util.Arrays;
 
 public class MergeSort {
+
+    public static int count = 0;
     public static void main(String[] args) {
 
         /*    Roadmap
               first we will split the array again and again till the array becomes single element array using recursion.
 
          */
-
-        int[] arr = {5,1,9,1,4,50,7,91,87,13,58,695,54};
+        int[] arr = {6, 12, 10, 17, 10, 22, 9, 19, 21, 31, 26, 8};
       int[] val = mergeSort(0, arr.length-1,arr);
 
         System.out.println(Arrays.toString(val));
+        System.out.println(count);
 
     }
     public static int[] mergeSort(int s, int e, int[] arr){
@@ -44,9 +46,14 @@ public class MergeSort {
                 k++;
                 i++;
             }else{
+                if(firstArray[i]!=secondArray[j]){
+                    count += firstArray.length-i;
+                }
+                System.out.println(count);
                 ans[k] = secondArray[j];
                 k++;
                 j++;
+
             }
         }
 
