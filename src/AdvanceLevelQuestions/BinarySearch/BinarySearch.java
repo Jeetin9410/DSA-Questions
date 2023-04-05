@@ -10,11 +10,11 @@ public class BinarySearch {
         int s= 0;
         int e= A.length-1;
 
-        while(s<e){
+        while(s<=e){
             int mid = s + (e-s)/2;
             if(key == A[mid])
                 return mid;
-            if(key < A[mid]){
+            else if(key < A[mid]){
                 e = mid -1;
             }else{
                 s = mid + 1;
