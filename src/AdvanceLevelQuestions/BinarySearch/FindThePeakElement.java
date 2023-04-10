@@ -52,7 +52,7 @@ Explanation 2:
 
     public static void main(String[] args) {
 
-        int[] A = {1, 1000000000, 1000000000};
+        int[] A = {5,1,3};
 
         System.out.println(findPeakElement(A));
     }
@@ -81,9 +81,9 @@ Explanation 2:
 
     Here while using binary search, we will observe that ,
     if A[mid]<A[mid+1] then it means ,there exist a peak  somewhere between mid+1 to end
-       this doesn't necessarily mean that no peak exist before mid index.
+       this doesn't necessarily mean that no peak exist before mid-index.
 
-       BUT any peak can be considered so..we are choosing like this
+       BUT any peak can be considered so,we are choosing like this
 
 
 
