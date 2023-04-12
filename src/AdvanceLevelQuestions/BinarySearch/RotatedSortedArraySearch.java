@@ -65,9 +65,9 @@ Target 5 is found at index 3 in A.
      */
 
     public static void main(String[] args) {
-        int[] A = {1, 7, 67, 133, 178};
+        int[] A = {101, 103, 106, 109, 158, 164, 182, 187, 202, 205, 2, 3, 32, 57, 69, 74, 81, 99, 100};
 
-        int B = 1;
+        int B = 202;
         /*  Approach 1: Find Peak element and binary search the target in required portion */
       /*  int peakElementIndex = findPeakElement(A);
         System.out.println(peakElementIndex);
@@ -81,12 +81,14 @@ Target 5 is found at index 3 in A.
         ex : A = 5,1,3 ===> 1 is pivot point
 
 
+            Below approach is not working for all cases (Hard Cases)
+
+
 
          */
 
-        int pivotIndex = findPivotElement(A);
-        pivotIndex--;
-        System.out.println(pivotIndex);
+/*        int pivotIndex = findPivotElement(A);
+
         if(pivotIndex==0 || pivotIndex==A.length-1 ){
             System.out.println(searchElement(A,0,A.length-1,B));
         }else if(B>=A[0] && B<=A[pivotIndex-1]){
@@ -94,28 +96,45 @@ Target 5 is found at index 3 in A.
         }else{
             System.out.println(searchElement(A,pivotIndex,A.length-1,B));
         }
+*/
 
+        /* Approach 2 :
+        * Explanation : https://www.youtube.com/watch?v=Le8bc8aHgBA&ab_channel=AnujBhaiya
+        *  */
+
+        System.out.println(ModifiedBinarySearch(A,B));
 
 
     }
 
-    public static int findPeakElement(int[] A){
-        int s = 0;
-        int e = A.length-1;
 
-        while(s<e){
-            int m = s + (e-s)/2;
-            if(A[m] < A[m+1]){
-                s=m+1;
-            }else{
-                e = m;
+    public static int ModifiedBinarySearch(int[] A, int key){
+            int s = 0;
+            int e = A.length-1;
+
+            while(s<=e){
+                int m = s + (e-s)/2;
+                if(A[m]==key){
+                    return m;
+                }
+                if(A[s] <= A[m]){
+                    if(key>=A[s] && key<=A[m]){
+                        e = m-1;
+                    }else{
+                        s = m+1;
+                    }
+                }else{
+                    if(key > A[m] && key < A[e]){
+                        s = m+1;
+                    }else {
+                        e = m-1;
+                    }
+                }
             }
-        }
-
-        return s;
+            return -1;
     }
 
-    public static int searchElement(int[] A, int start, int end, int key){
+  /*  public static int searchElement(int[] A, int start, int end, int key){
         while(start<=end){
             int m = start + (end - start)/2;
             if(key == A[m]){
@@ -133,16 +152,16 @@ Target 5 is found at index 3 in A.
         int s = 0;
         int e = A.length-1;
 
-        while(s<=e){
+        while(s<e){
             int m = s + (e-s)/2;
-            if(A[m] < A[m+1]){
-                e=m-1;
+            if(A[m] < A[m+1] &&(A[m-1] < A[m+1])){
+                s=m+1;
             }else{
-                s = m+1;
+                e = m;
             }
         }
 
         return s;
     }
-
+*/
 }
