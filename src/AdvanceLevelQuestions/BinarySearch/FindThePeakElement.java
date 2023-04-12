@@ -69,7 +69,7 @@ Explanation 2:
                 e = m;
             }
         }
-        return A[e];
+        return e;
     }
 
     /* Code Explaination :
