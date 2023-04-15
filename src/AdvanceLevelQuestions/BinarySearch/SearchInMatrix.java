@@ -66,42 +66,42 @@ NOTE: Rows are numbered from top to bottom, and columns are from left to right.
         System.out.println(BinarySearchInMatrix(A,41));
     }
     public static int BinarySearchInMatrix(int[][] A, int key){
-       int low  = 0;
-       int high = A.length-1;
-       int col = A[0].length-1;
+        int low  = 0;
+        int high = A.length-1;
+        int col = A[0].length-1;
         int mid = (low+high)/2;
-       while(low <= high){
+        while(low <= high){
 
-           if(key>=A[mid][0] && key<=A[mid][col]) {
+            if(key>=A[mid][0] && key<=A[mid][col]) {
 
-               break;
-           }else if(A[mid][0]>key){
+                break;
+            }else if(A[mid][0]>key){
 
-               high=mid-1;
+                high=mid-1;
 
-           }else{
+            }else{
 
-               low=mid+1;
+                low=mid+1;
 
-           }
-           mid = (low+high)/2;
-       }
-       int reqCol = mid;
-        System.out.println(mid);
-       int start = 0;
-       int end = col;
+            }
+            mid = (low+high)/2;
+        }
+        int reqCol = mid;
+        //System.out.println(mid);
+        int start = 0;
+        int end = col;
 
-       while(start<=end){
-           int m = (start + end)/2;
-             if(A[reqCol][m]==key){
-               return 1;
-           }else if(key<A[reqCol][m]){
-               end = m-1;
-           }else {
-               start = m+1;
-           }
-       }
+        while(start<=end){
+            int m = (start + end)/2;
+            if(A[reqCol][m]==key){
+                return 1;
+            }else if(key<A[reqCol][m]){
+                end = m-1;
+            }else {
+                start = m+1;
+            }
+        }
 
-       return 0;
+        return 0;
     }
 }
