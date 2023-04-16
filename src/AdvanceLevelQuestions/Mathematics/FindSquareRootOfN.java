@@ -27,5 +27,10 @@ Explanation:  The square root of 11 lies in between 3 and 4 so floor of the squa
         }
 
         System.out.println(ans);
+
+        /// Here the time complexity is O(sqrt(N))
+
+        // This can further be reduced to O(log(N)) using binary search
+        // check this solution in binary search approach also
     }
 }
