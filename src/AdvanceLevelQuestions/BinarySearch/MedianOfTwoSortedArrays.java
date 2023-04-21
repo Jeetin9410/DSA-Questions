@@ -178,15 +178,16 @@ Take the average between the two: (10 + 12) / 2 = 11.
             return findMedianSortedArrays(b,a);
         }
 
-        // The above code is just to ensure that List a size should be grater then List size b.
+        // The above code is just to ensure that List a size should be smaller then List b.
         // this above step is so valuable that it got me stuck for 3 days .FUCKKKK
+        // why smaller ? so that our search space for binary search is less.
 
 
         int totalLengthOfC = m+n+1;      //1 because index start from 0, to make it from 1;
         int halfLengthOfC = (totalLengthOfC)/2;
 
         int lowA = 0;
-        int highA = a.size();      //// here you have to take the list which is of larger size. Which already been takecare above.
+        int highA = a.size();      //// here you have to take the list which is of smaller size. Which already been takecare above.
 
         while(lowA<=highA){
             int cut1 = lowA + (highA - lowA)/2;   // this mid is basically the cut of partition in list A
