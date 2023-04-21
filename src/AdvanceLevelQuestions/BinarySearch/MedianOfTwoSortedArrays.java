@@ -174,15 +174,19 @@ Take the average between the two: (10 + 12) / 2 = 11.
     public static double findMedianSortedArrays(List<Integer> a, List<Integer> b ){
         int n = a.size();
         int m = b.size();
-        if(n > m){
+        if(n < m){
             return findMedianSortedArrays(b,a);
         }
+
+        // The above code is just to ensure that List a size should be grater then List size b.
+        // this above step is so valuable that it got me stuck for 3 days .FUCKKKK
+
 
         int totalLengthOfC = m+n+1;      //1 because index start from 0, to make it from 1;
         int halfLengthOfC = (totalLengthOfC)/2;
 
         int lowA = 0;
-        int highA = a.size();
+        int highA = a.size();      //// here you have to take the list which is of larger size. Which already been takecare above.
 
         while(lowA<=highA){
             int cut1 = lowA + (highA - lowA)/2;   // this mid is basically the cut of partition in list A
