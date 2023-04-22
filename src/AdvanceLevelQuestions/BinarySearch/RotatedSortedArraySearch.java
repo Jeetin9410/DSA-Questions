@@ -124,7 +124,8 @@ Target 5 is found at index 3 in A.
                         s = m+1;
                     }
                 }else{
-                    if(key >= A[m] && key <= A[e]){
+                    if(key >= A[m] && key <= A[e]){       // these = sign are v v v important, otherwise the code will not work
+                                                         // for the cases where there are more then 1 peak.
                         s = m+1;
                     }else {
                         e = m-1;
