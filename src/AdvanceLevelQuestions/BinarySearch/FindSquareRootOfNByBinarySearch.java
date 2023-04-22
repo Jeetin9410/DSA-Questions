@@ -27,6 +27,9 @@ Explanation:  The square root of 11 lies in between 3 and 4 so floor of the squa
          mid * mid < N  then move to right part of mid.
          */
         System.out.println(Sqrt(15));
+
+        //// This code with int didnt worked for this input on leetcode
+        /// n = 2147395599
     }
     public static int Sqrt(int N){
         int s = 1;

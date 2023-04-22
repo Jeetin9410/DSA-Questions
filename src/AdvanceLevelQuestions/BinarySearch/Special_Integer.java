@@ -85,7 +85,7 @@ Constraints are satisfied for maximal value of 3.
         Ans : Any Array can be divided into sub-arrays of size
         k = 0 ...to...A.length ===>  which is an sorted number list.
 
-        The approach will be same as previous approach but this time we will narrow down our search by ignoring
+        The approach will be same as above approach but this time we will narrow down our search by ignoring
         some values of k
         Cause in previous appraoch we were checking every value of k
         But we know if 2 is answer then 1 will automatically satisfy that so no need to check for every value.
@@ -113,6 +113,7 @@ Constraints are satisfied for maximal value of 3.
             boolean status = isSumGreaterThenTarget(ps,mid,B);
             if(status){
                 high = mid -1;
+
             }else{
                 ans = mid;
                 low = mid + 1;
