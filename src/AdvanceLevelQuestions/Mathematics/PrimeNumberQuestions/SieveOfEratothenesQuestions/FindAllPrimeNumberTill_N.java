@@ -37,6 +37,8 @@ The next number not yet crossed out in the list after 5 is 7; the next step woul
 
  2  3     5     7          11    13          17    19          23                29
 
+    TC : O(N)
+
      */
 
 

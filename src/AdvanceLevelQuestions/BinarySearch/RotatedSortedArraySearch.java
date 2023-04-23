@@ -65,9 +65,9 @@ Target 5 is found at index 3 in A.
      */
 
     public static void main(String[] args) {
-        int[] A = {5,1,3};
+        int[] A = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11};
 
-        int B = 3;
+        int B = 12;
         /*  Approach 1: Find Peak element and binary search the target in required portion */
       /*  int peakElementIndex = findPeakElement(A);
         System.out.println(peakElementIndex);
