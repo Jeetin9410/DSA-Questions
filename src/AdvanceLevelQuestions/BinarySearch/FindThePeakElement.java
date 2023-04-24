@@ -52,7 +52,7 @@ Explanation 2:
 
     public static void main(String[] args) {
 
-        int[] A = {5,1,3,4};
+        int[] A = {11,13,15,17};
 
         System.out.println(findPeakElement(A));
     }
@@ -64,9 +64,9 @@ Explanation 2:
         while(s<e){
             int m = s + (e-s)/2;
             if(A[m] < A[m+1] &&(A[m-1] < A[m+1])){
-                s = m + 1;
+                e = m - 1;
             }else{
-                e = m;
+                s = m;
             }
         }
         return e;

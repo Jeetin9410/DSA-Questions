@@ -33,7 +33,7 @@ public class isPrimeNumber_usingFermatLittleAlgorithm {
          (a)^n-1 % n = 1
          */
 
-        int num = 11;
+        int num = 561;
 
         System.out.println(isPrime(num));
 
