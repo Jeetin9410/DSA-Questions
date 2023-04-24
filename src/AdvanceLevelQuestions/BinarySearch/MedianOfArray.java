@@ -1,6 +1,9 @@
 package AdvanceLevelQuestions.BinarySearch;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class MedianOfArray {
     /*
@@ -61,41 +64,84 @@ Explanation 2:
      */
 
     public static void main(String[] args) {
-        int[] A = {1,4,5};
-        int[] B = {2,3};
+        List<Integer> a = Arrays.asList(1,2,3,5);
+        List<Integer> b = Arrays.asList(4);
 
-        int n1= A.length;
-        int n2 =B.length;
+        /* Intution 1: Merge two sorted arrays
+        and simply use the median formula on final sorted merges array.
 
-        int[] ans = new int[n1+n2];
+        Issues : The code below is throwing TLE on Hard Cases.
+
+         */
+
+  /*      int n1= a.size();
+        int n2 =b.size();
+
+        List<Integer> ans = new ArrayList<>();
         int i=0;
         int j=0;
         int k = 0;
 
         while(i<n1 && j<n2){
-          if(A[i]<B[j]){
-              ans[k] = A[i];
+          if(a.get(i)<b.get(j)){
+              ans.add(a.get(i));
               k++;
               i++;
           }else {
-              ans[k] = B[j];
+              ans.add(b.get(j));
               k++;
               j++;
           }
         }
 
-        while(i < A.length){
-            ans[k] = A[i];
+        while(i < a.size()){
+            ans.add(a.get(i));
             k++;
             i++;
         }
 
-        while(j < B.length){
-            ans[k] = B[j];
+        while(j < b.size()){
+            ans.add(b.get(j));
             k++;
             j++;
         }
 
-        System.out.println(Arrays.toString(ans));
+
+        double median = 0.0;
+        int n3 = ans.size();
+        if(n3%2==0){
+            median = (double) ((double) (ans.get((n3-1)/2) + ans.get(((n3-1)/2) + 1))/2.0);
+        }else {
+            median = (double)ans.get(n3/2);
+        }
+
+        System.out.println(Solution(ans));  */
+
+        /*   Using Binary Search 
+
+         */
     }
+    public static double Solution(List<Integer> ans )
+    {
+        int n = ans.size();
+
+        // If length of array is even
+        if (n % 2 == 0)
+        {
+            int z = n / 2;
+            int e = ans.get(z);
+            int q = ans.get(z - 1);
+
+            double val = (double) (e + q) / 2;
+            return val;
+        }
+
+        // If length if array is odd
+        else
+        {
+            int z = Math.round(n / 2);
+            return (double)ans.get(z);
+        }
+    }
+
 }
