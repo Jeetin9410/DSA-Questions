@@ -5,7 +5,7 @@ import java.util.*;
 public class BookAllocationProblem {
     /*
 
-    Given an array of integers A of size N and an integer B.
+Given an array of integers A of size N and an integer B.
 
 The College library has N books. The ith book has A[i] number of pages.
 
@@ -19,8 +19,8 @@ Calculate and return that minimum possible number.
 NOTE: Return -1 if a valid assignment is not possible.
 
 Problem Constraints
-1 <= N <= 105
-1 <= A[i], B <= 105
+1 <= N <= 10^5
+1 <= A[i], B <= 10^5
 
 
 
@@ -57,20 +57,59 @@ There are two students. Books can be distributed in following fashion :
 
      */
 
+    /// Explaination : https://www.youtube.com/watch?v=YTTdLgyqOLY&ab_channel=CodeHelp-byBabbar
+
     public static void main(String[] args) {
-        int[] A = {12, 34, 67, 90};
+        int[] A = {31, 14, 19, 75};
+        int studentMaxLimit = 12;
         int n = A.length;
-        int[] ps = new int[n+1];
-        ps[0] = 0;
-        for(int i = 0;i<n;i++){
-            ps[i+1] = ps[i] + A[i];
+
+        // first we need search space to apply binary search
+        // so we are given lower limit as 1
+        //  and upper limit will be :  total sum of all pages (which is not possible but it can work for as upper limit)
+        long sum = 0;
+        for(int val : A){
+            sum += val;
         }
 
-        System.out.println(Arrays.toString(ps));
+        long low = 0;
+        long high = sum;
 
-         for (int i = 1,k=1;i<ps.length;i++,k++){
-             int firstHalfTotalPages = 0;
+        long res = -1;
 
-         }
+        while(low <= high){
+            long mid = low + (high - low) /2;
+
+            if(isPossible(A,mid,studentMaxLimit)){
+                high = mid -1;
+                res = mid;
+            }else{
+                low = mid + 1;
+            }
+
+
+
+        }
+
+        System.out.println(res);
+
+    }
+    public static boolean isPossible(int[] arr, long mid, int studentMaxLimit){
+        int studentCount = 1;
+        int pagesSum = 0;
+
+        for(int i=0;i<arr.length;i++){
+            if( pagesSum + arr[i] <= mid ){
+                pagesSum += arr[i];
+            }else{
+                studentCount++;
+                if(studentCount > studentMaxLimit || arr[i] > mid){
+                    return false;
+                }
+                pagesSum = arr[i];
+            }
+        }
+
+        return true;
     }
 }

@@ -46,8 +46,8 @@ The target value is present at index 0.
  */
 
     public static void main(String[] args) {
-        int[] A = {141, 144, 145, 154, 229, 235, 243, 266, 344, 351, 466, 499, 512, 565, 641, 675, 690, 726, 805, 879, 978, 986};
-        int B = 65;
+        int[] A = {1,2,3,4,5,6,7,8,10};
+        int B = 9;
 
         System.out.println(BinarySearch(A,B));
 
