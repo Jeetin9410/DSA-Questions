@@ -5,7 +5,8 @@ public class CountOfPairsWithGivenSum {
     /*           SIMILAR TO ==> Two Sum problem
 
 
-    Given a sorted array of distinct integers A and an integer B, find and return how many pair of integers ( A[i], A[j] ) such that i != j have sum equal to B.
+Given a sorted array of distinct integers A and an integer B,
+find and return how many pair of integers ( A[i], A[j] ) such that i != j have sum equal to B.
 
 
 Input Format
