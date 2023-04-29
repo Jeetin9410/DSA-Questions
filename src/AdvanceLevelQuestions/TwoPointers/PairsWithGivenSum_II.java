@@ -73,7 +73,7 @@ Explanation 2:
          */
 
         int n = A.length;
-        HashMap<Integer,Integer> map = new HashMap<>();  // number, its no of occurence
+        HashMap<Integer,Integer> map = new HashMap<>();  // number, its no of occurrence
         int count = 0;
         for(int i=0;i<n;i++){
             int diff = B - A[i];
