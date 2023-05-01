@@ -1,0 +1,111 @@
+
+QuickSort :
+
+This Algorithm has following key components :
+1) pivot element : An element before which all elements are smaller in array.
+                   and after that all elements are greater then that element.
+         This situation will occur ONLY and ONLY when , the pivot element is sitauted at its sorted correct position.
+
+2) After finding the pivot element, we will have two paritions of array i.e left and right
+
+3)  for which , we again find the pivot element and again try to divide the array into two
+
+4) this process will go till start >=  end
+
+Ques : How to find the pivot element?
+pivot Element can be considered from following :
+1) First element
+2) Middle element
+3) Last element
+
+Here we will take First element as pivot element.
+then we will find the correct index for that pivot element i.e pivotIndex
+Ques : How to find that?
+step 1 : pivot = A[start]
+step 2 : find the number of elements lesser then pivot using for loop.
+step 3 : then find pivotIndex, pivotIndex = start + count;
+step 4 :  now use 2 pointers i and j
+          i = start and  j = end
+
+      now using while loop
+       check for if(A[i] <= pivot) then increment i pointer by 1; means that A[i] is at right position i.e left of pivot
+                  and do the above increment till (A[i] <= pivot) using while loop
+
+       check for if(A[i] > pivot) then decrement j pointer by 1; means that A[j] is at right position i.e right of pivot
+                         and do the above decrement till (A[i] <= pivot) using while loop
+
+       also there will be condition where both conditions will not be true
+       then
+       if(i < pivotIndex && j > pivotIndex){
+         swap(A[i],A[j])
+         i++;
+         j++;
+       }
+
+       now return pivotIndex;
+
+     After this step,  all elements smaller then pivot will be at the left side of pivot
+     and all greater elements will be on right of pivot.
+
+     Point to remember : These left and right parts are not neccessarly sorted
+
+     This is just the first pass of iteration.
+
+step 5 : now as we got pivotIndex, now we will again do the above process for left partition and right partition
+
+/************************ Code ****************************/
+
+public void quickSort(int[] A, int s, int e){
+
+    if( s>=e)
+       return ;
+
+    int pivotIndex = partition(A, s, e);
+    quickSort(A, s , pivotIndex-1);
+    quickSort(A,pivot+1,e);
+}
+
+public int partition(int[] A, int s, int e){
+
+int pivot = A[s];
+
+// count no of smaller elements then pivot
+    int count = 0;
+
+    for(int i=s+1;i<=e;i++){         /// this index are imp to remember.
+      if(A[i] < pivot){
+        count++;
+    }
+    /// calculate pivot index
+    int pivotIndex = s + count;
+
+    // swap the start element (pivot) with the element on its pivotIndex position
+    int temp = A[s];
+    A[s] = A[pivotIndex];
+    A[pivotIndex] = temp;
+
+    // now insure the all smaller elements are on left of pivot and greater on right to it.
+
+    int i =s; int j=e;
+
+    while(i<pivotIndex && j>pivotIndex){
+
+        while(A[i] <= pivot){
+            i++;
+        }
+
+        while(A[j] > pivot){
+            j--;
+        }
+
+        if(i<pivotIndex && j>pivotIndex){
+        int temp =A[i];
+        A[i] = A[j];
+        A[j] = temp;
+        i++;
+        j++;
+        }
+    }
+
+    return pivotIndex;
+}
