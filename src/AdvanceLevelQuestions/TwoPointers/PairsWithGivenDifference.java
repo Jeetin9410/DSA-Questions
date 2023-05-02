@@ -1,7 +1,7 @@
 package AdvanceLevelQuestions.TwoPointers;
 
 import java.util.*;
-public class PairsWithGivenDifference {
+public class PairsWithGivenDifference { /// Very Very Good Question
     /*
 Given an one-dimensional integer array A of size N and an integer B.
 
@@ -33,36 +33,96 @@ Input 3:
             int[] A = {8, 5, 1, 10, 5, 9, 9, 3, 5, 6, 6, 2, 8, 2, 2, 6, 3, 8, 7, 2, 5, 3, 4, 3, 3, 2, 7, 9, 6, 8, 7, 2, 9, 10, 3, 8, 10, 6, 5, 4, 2, 3};
             int B = 3;
 
-            int n = A.length;
+            // ans = 7
+
+        // Brute force appraoch :
+        /*
+           using nested for loops, to find
+           A[j] - A[i] = k
+
+           Tc : O(N*N)
+         */
+
+        // Approach 2 : O(nLogn)
+        /* Using Binary search
+
+           Step 1 : Sort the array
+           step 2 : Now we will use for loop
+                    and for every element we will binary search the (A[i] + B) element
+                    if found
+                       then we will store the min(A[i]+B, A[i])  , which will be A[i] always
+                       in HashSet
+                       Ques:  Why doing so?
+                   Ex 1 1 3 4 5  B = 2
+
+             i=0,  (1,3) will be a pair     we stored min(1,3) in set , set = [1]
+             i=1,  (1,3) will be a pair BUT not unique this time,   set = [1]
+             i=2   (3,5) will be a pair,    set = [1,3]
+             i=3   no pair found
+             i=4  no pair found
+
+           So unique pairs are set.size()==>2
+           step 3 : Finallay retun set.size();
+
+
+         */
+        int n = A.length;
+
+        HashSet<Integer> mSet  = new HashSet<>();
+
+        for (int i=0;i<n;i++){
+            if(Arrays.binarySearch(A,i+1,n,A[i]+B) > 0){
+                mSet.add(A[i]);
+            }
+        }
+
+        System.out.println(mSet.size());
+
+
+
+        /////////////  Appraoch 3 : O(N)  ///////////////////
+
             int count = 0;
 
             /// Optimal approach
-        /* Sorting the array first. Why? will get to next
-        we will take two pointers i  and j
-        at starting i =0;  j=i+1;
+            HashMap<Integer, Integer> map = new HashMap<>();
 
-        we will move j and check for two conditions
-        1) (A[j] - A[i]) < B  then move j++
-        2) (A[j] - A[i]) > B  then move i++
+          for(int i =0;i<n;i++){
+            if(map.containsKey(A[i])){
+                map.put(A[i],map.get(A[i])+1);
+            }else{
+                map.put(A[i],map.getOrDefault(A[i],0)+1);
+            }
+          }
 
-         */
+          HashSet<Integer> set = new HashSet<>();
 
-        Arrays.sort(A);
-        int i =0;
-        int j=1;
-        while (i<A.length && j<A.length){
-                if((A[j] - A[i]) == B){
-                    count++;
-                   // break;
-                } else if((A[j] - A[i])<B){
-                    j++;
-                }else{
-                    i++;
-                }
+          for(int i : A){
+              if(!set.contains(i)){
+                  set.add(i);
+              }
+          }
 
-        }
+          // storing these unique element in arraylist
 
-        System.out.println(count);
+        ArrayList<Integer> ans  = new ArrayList<>(set);
+
+          for(int i : ans){
+              if(B==0){
+                  if(map.get(i)>1){
+                      count++;
+                  }
+              }else{
+                  if(map.containsKey(A[i]+B)){
+                      count++;
+                  }
+              }
+          }
+
+        System.out.println(count);;
+
+
+
     }
 
 }
