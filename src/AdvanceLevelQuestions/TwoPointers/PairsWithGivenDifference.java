@@ -36,17 +36,61 @@ Input 3:
             int n = A.length;
             int count = 0;
 
-            HashMap<Integer, Integer> map = new HashMap<>();
+            /// Optimal approach
+       /* Using HashMap
 
-            for(int i=0;i<A.length;i++){
-                int nextNum = (A[i] > B)?(A[i]-B):(A[i]+B);
-                int num1 = A[i] + B;
-                if(map.containsKey(num1)){
+         first we traverse entire array and store all the numbers with there occurence
+
+         now for every element we will check if (A[i] + B) exist in map or not.
+         if yes, then count++
+
+         now edge case , if B==0
+         then check if  frequence of any number is in multiple of 2 then store that.
+
+
+        */
+
+
+      //  int n = A.size();
+     //   int count = 0;
+
+        // count frequency of every element
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i : A){
+            if(hm.containsKey(i)){
+                hm.put(i, hm.get(i) + 1);
+            }else{
+                hm.put(i, 1);
+            }
+        }
+
+        // storing only distinct element
+        HashSet<Integer> hs = new HashSet<>();
+        for(int i : A){
+            if(!hs.contains(i)){
+                hs.add(i);
+            }
+        }
+
+        // Arraylist is store all the all the distict element from hashset, which we will use to iterate
+        ArrayList<Integer> ans = new ArrayList<>(hs);
+
+        /*Finding ans logic
+         if B == 0, we will check if there are any two same elements or the count of same element is greater than 1. Eg - 1 1 1 1 2 2 2  and B is 0......... so count of 1 = 4 and count of 2 = 3; ans would be (1-1) and (2-2) only 2 paris.
+ans in this case
+
+*/
+        for(int i : ans){
+            if(B == 0){
+                if(hm.get(i) > 1){
                     count++;
                 }
-                map.put(A[i],map.getOrDefault(A[i],0)+1);
+            }else{
+                if(hm.containsKey(B+i)){
+                    count++;
+                }
             }
-
+        }
         System.out.println(count);
 
     }
