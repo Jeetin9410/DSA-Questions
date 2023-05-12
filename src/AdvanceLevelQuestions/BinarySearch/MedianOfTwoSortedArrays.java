@@ -174,7 +174,7 @@ Take the average between the two: (10 + 12) / 2 = 11.
     public static double findMedianSortedArrays(List<Integer> a, List<Integer> b ){
         int n = a.size();
         int m = b.size();
-        if(n < m){
+        if(n > m){
             return findMedianSortedArrays(b,a);
         }
 
