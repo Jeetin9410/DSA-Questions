@@ -1,0 +1,6 @@
+
+1) There are two numbers x and y and there (x xor y) = z(let) is given and one of the number(x) itself is given.
+   Find y.
+
+   Ans : Property :
+         X ^ (X ^ Y) =  Y
