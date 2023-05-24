@@ -27,8 +27,14 @@ Output: No subarray with given sum exists
 Explanation: There is no subarray with the given sum
      */
     public static void main(String[] args) {
-        int[] arr = {10,2,-2,-20,10};
-        int target = -10;
+        int[] arr = {1,2,3,4,5};
+        int target = 5;
+
+        /*  Points to be careful in here:
+          1)  sum should be taken long
+          cause array element with high int value will sum up to lon value
+          2) start should be map.get(sum - B ) + 1 cause we need next element from which required subarray is.
+         */
 
         int n = arr.length;
         int sum = 0;
@@ -41,17 +47,21 @@ Explanation: There is no subarray with the given sum
             if(sum == target){
                 start = 0;
                 end = i;
+             //   System.out.println(start + " "+end);
                 break;
             }
             if(map.containsKey(sum - target)){
-                start = map.get(sum- target);
+                start = map.get(sum- target) + 1;
                 end = i;
+            //    System.out.println(start + " "+end);
                 break;
             }
             map.put(sum,i);
         }
-
-        System.out.println(arr[start]+" "+arr[end]);
-        System.out.println(Arrays.asList(map));
+        if(end == -1){
+            int[] ans = {-1};
+        }else{
+            System.out.println(Arrays.toString(Arrays.copyOfRange(arr,start,end+1)));
+        }
     }
 }
