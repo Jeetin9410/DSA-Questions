@@ -1,7 +1,8 @@
-package AdvanceLevelQuestions.TwoPointers;
+package IntermediateLevelQuestions.Hashing.SubArrayWithGivenSumAllVariations;
 
-import java.util.*;
-public class SubarrayWithGivenSum {
+import java.util.Arrays;
+
+public class ReturnFirstSubarrayWithGivenSum {
 
     /* The solution below , does not handle negative cases.
 
@@ -10,7 +11,8 @@ public class SubarrayWithGivenSum {
      */
 
     /*
-        Given an array of positive integers A and an integer B, find and return first continuous subarray which adds to B.
+        Given an array of positive integers A and an integer B,
+         find and return first continuous subarray which adds to B.
 
 If the answer does not exist return an array with a single element "-1".
 
@@ -20,8 +22,8 @@ First sub-array means the sub-array for which starting index in minimum.
 
 Problem Constraints
 1 <= length of the array <= 100000
-1 <= A[i] <= 109
-1 <= B <= 109
+1 <= A[i] <= 10^9
+1 <= B <= 10^9
 
 
 
@@ -68,7 +70,7 @@ Explanation 2:
     public static void main(String[] args) {
             int[] A = {10, 2, -2, -20, 10};
             int B = -10;
-
+             //   Two pointers approach
             //// This approach not work if array element has negative values
 
 

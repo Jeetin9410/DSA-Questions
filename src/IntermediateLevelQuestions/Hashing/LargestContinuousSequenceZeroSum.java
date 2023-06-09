@@ -42,6 +42,14 @@ Example Explanation
 
         int n = A.length;
 
+        // Reason behind this logic is :
+        /* Any array , will have subarray with sum zero if its prefix sum array follows :
+          a) if the sum repeats in ps array ==> means sum between those entries is zero
+          b) if the ps array itself contains 0 in it.
+
+         */
+
+
      /*   int[] ps = new int[n];
 
         ps[0] = A[0];
@@ -78,6 +86,14 @@ Example Explanation
 
 
         ////////////////////// The above code can be modified to this  //////////////////////////
+
+        // Reason behind this logic is :
+        /* Any array , will have subarray with sum zero if its prefix sum array follows :
+          a) if the sum repeats in ps array ==> means sum between those entries is zero
+          b) if the ps array itself contains 0 in it.
+
+         */
+
 
         HashMap<Integer,Integer> map = new HashMap<>();
         int left = -1;
