@@ -37,18 +37,46 @@ Output 2:
      */
     public static void main(String[] args) {
 
-        int[] A = {1,2,3,4,5};
-        int B = 5;
+        int[] A = {5, 10, 20, 100, 105};
+        int B = 110;
 
-        HashMap<Integer, Integer> map  = new HashMap<>();
+        // ans = [2,3],[5]
+
+        /*  Using two pointer approach
+            start = 0;
+            end = 0; at first
+
+            we will increment end pointer till n to find sum
+
+            while doing this,
+            we will check if sum > B
+            if that happens then we will increment start to one position, now even if sum > B then
+            we will do this using while loop
+
+
+
+
+         */
+        int n = A.length;
+        int start = 0;
+        int end = 0;
+        int sum = 0;
         int count = 0;
-        for(int i=0;i<A.length;i++){
-            int diff = B - A[i];
-            if(map.containsKey(diff)){
-                count++;
-            }else{
-                map.put(A[i],i);
+
+        while(end<=n){
+            while (sum > B && start < end -1){
+                sum = sum - A[start];
+                start++;
             }
+            if(sum == B){
+                count++;
+            }
+            if(end < n){
+                sum += A[end];
+
+            }
+
+            end++;
         }
         System.out.println(count);
     }
