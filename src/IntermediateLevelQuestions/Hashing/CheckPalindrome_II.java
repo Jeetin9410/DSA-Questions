@@ -43,13 +43,14 @@ Explanation 2:
      */
 
     public static void main(String[] args) {
-        String A = "vnpbeutxfqxriiajoejjmtjcx";
+        String A = "inttnikjmjbemrberk";
 
         // Intuition
 
         /*
             for even length string : every character will occur in multiple of 2.,
             for odd length string : one character willoccur once, and rest will occur in multiple of 2
+            Summary : 
           odd instance count should be less then 1, for a string to be possible palindrome
 
          */
