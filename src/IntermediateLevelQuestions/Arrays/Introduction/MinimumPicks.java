@@ -59,6 +59,6 @@ ans = 100 - 1 = 99
             }
         }
 
-        System.out.println(max + " "+ min);
+        System.out.println(max +" "+ min);
     }
 }
