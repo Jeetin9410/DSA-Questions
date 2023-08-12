@@ -81,9 +81,9 @@ Output 2:
                 MAX = A[i];
             }
 
-             if(A[i] > SECOND_MAX && A[i]!=MAX){
-                 SECOND_MAX = A[i];
-             }
+            if(A[i] > SECOND_MAX && A[i]!=MAX){
+                SECOND_MAX = A[i];
+            }
         }
 
         System.out.println(SECOND_MAX);

@@ -69,44 +69,28 @@ Explanation 2:
      */
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int testCases = sc.nextInt();
-        int count = 0;
-
-        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
-        while(count < testCases){
+        Scanner sc  = new Scanner(System.in);
+        int T = sc.nextInt();
+        for(int i =0;i<T;i++){
             int size = sc.nextInt();
-            ArrayList<Integer> list = new ArrayList<>();
-            for(int i=0;i<size;i++){
-              list.add(sc.nextInt());
+            // int[] arr = new int[size];
+            ArrayList<Integer> evenArrayList = new ArrayList<Integer>();
+            ArrayList<Integer> oldArrayList = new ArrayList<Integer>();
+            for(int j =0;j<size;j++){
+                int num = sc.nextInt();
+                if(num%2==0){evenArrayList.add(num);
+                }else { oldArrayList.add(num); }
             }
-            map.put(count, list);
-            count++;
+            for(int v : oldArrayList){
+                System.out.print(v+" ");
+            }
+            System.out.println("");
+            for(int v : evenArrayList){
+                System.out.print(v+" ");
+            }
+            System.out.println("");
         }
-
-        for (Map.Entry<Integer,ArrayList<Integer>> entry : map.entrySet()){
-            printOddValues(entry.getValue());
-            printEvenValues(entry.getValue());
-
-        }
-
 
     }
-    public static void printOddValues(ArrayList<Integer> ls){
-        for(int val : ls){
-            if(val%2!=0){
-                System.out.print(val+" ");
-            }
-        }
-        System.out.println("\b");
-    }
 
-    public static void printEvenValues(ArrayList<Integer> ls){
-        for(int val : ls){
-            if( val % 2 ==0){
-                System.out.print(val+" ");
-            }
-        }
-        System.out.println("\b");
-    }
 }
