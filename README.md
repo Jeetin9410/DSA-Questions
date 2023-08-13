@@ -1,7 +1,7 @@
 
 # DSA Problem Solutions Repository
 
-Welcome to the DSA Problem Solutions repository! This repository contains solutions to various Data Structures and Algorithms (DSA) problems from platforms like LeetCode and Scalar Academy. Whether you're a beginner looking to learn DSA or an experienced coder practicing problem-solving skills, this repository can be a valuable resource for you.
+Welcome to the DSA Problem Solutions repository! This repository contains solutions to various Data Structures and Algorithms (DSA) problems from platforms like LeetCode and Scaler Academy. Whether you're a beginner looking to learn DSA or an experienced coder practising problem-solving skills, this repository can be a valuable resource for you.
 
 # Introduction
 - Problem-solving is an essential skill for any software developer, and mastering DSA is a significant part of it. This repository aims to provide clear and concise solutions to a wide range of DSA problems to help you understand various techniques, algorithms, and data structures.
