@@ -64,7 +64,7 @@ Explanation 2:
         // Approach
 
         //Step 1 : First we will collect all possible coordinates in HashSet in String format of "A[i]-B[i]".
-        // Step2 : Now we to Find Rectangle,
+        // Step2 : Now we xxxto Find Rectangle,
         // we will apply 2 nested loop with i and j
         // we are going to check
         //        if 2 points let A(x,y) and B(x,y) are eligible diagonal or not.

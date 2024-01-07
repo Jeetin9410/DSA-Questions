@@ -1,4 +1,4 @@
-package AndroidDeveloperPracticeQuestions;
+package android_developer_practice_questions;
 
 import java.util.Arrays;
 
