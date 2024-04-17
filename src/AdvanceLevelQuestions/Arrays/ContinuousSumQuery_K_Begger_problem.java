@@ -46,6 +46,9 @@ public class ContinuousSumQuery_K_Begger_problem {
 
         int[] coins = new int[A];
 
+        /*
+        TC: O(N*N)
+        SC: O(N)
         for(int i= 0; i< B.length;i++){
             for(int j= B[i][0]-1; j<B[i][1]; j++){
                 coins[j] = coins[j] + B[i][2];
@@ -53,6 +56,22 @@ public class ContinuousSumQuery_K_Begger_problem {
         }
 
         System.out.println(Arrays.toString(coins));
+        */
 
+
+        // Method 2 :
+
+        for(int i=0;i<B.length;i++){
+            coins[B[i][0] - 1] += B[i][2];
+            if(B[i][1] < A){
+                coins[B[i][1]] -= B[i][2];
+            }
+        }
+
+        for(int i=1;i<A;i++){
+            coins[i] += coins[i-1];
+        }
+
+        System.out.println(Arrays.toString(coins));
     }
 }
