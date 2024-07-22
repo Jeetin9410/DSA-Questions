@@ -56,7 +56,7 @@ Explanation 2:
          */
 
         int n = A.length();
-        System.out.println(n);
+        //System.out.println(n);
         HashMap<Character,Integer> map = new HashMap<>();
         char[] arr = A.toCharArray();
         boolean status = false;
