@@ -118,6 +118,49 @@ fun main() {
 
         4. Track the Best Window: Keep track of the smallest window that satisfies the condition.
 
+        Explanation: https://youtu.be/eS6PZLjoaq8?si=HjtM0b6BBiggS8O5
      */
 
+    if (t.length > s.length) return ""
+
+    val tCharCount = mutableMapOf<Char, Int>()
+    for (char in t) {
+        tCharCount[char] = tCharCount.getOrDefault(char, 0) + 1
+    }
+
+    var left = 0
+    var right = 0
+    var have = 0
+    val need = tCharCount.size
+    val windowCharCount = mutableMapOf<Char, Int>()
+    var minLength = Int.MAX_VALUE
+    var minStart = 0
+
+    while (right < s.length) {
+        val rightChar = s[right]
+        windowCharCount[rightChar] = windowCharCount.getOrDefault(rightChar, 0) + 1
+
+        if (tCharCount.containsKey(rightChar) && windowCharCount[rightChar] == tCharCount[rightChar]) {
+            have++
+        }
+
+        while (have == need) {
+            // Update the minimum window
+            if (right - left + 1 < minLength) {
+                minLength = right - left + 1
+                minStart = left
+            }
+
+            // Try to contract the window from the left
+            val leftChar = s[left]
+            windowCharCount[leftChar] = windowCharCount[leftChar]!! - 1
+            if (tCharCount.containsKey(leftChar) && windowCharCount[leftChar]!! < tCharCount[leftChar]!!) {
+                have--
+            }
+            left++
+        }
+        right++
+    }
+
+    println( if (minLength != Int.MAX_VALUE) s.substring(minStart, minStart + minLength) else "")
 }
