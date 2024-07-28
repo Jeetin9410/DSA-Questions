@@ -121,7 +121,7 @@ fun main() {
         Explanation: https://youtu.be/eS6PZLjoaq8?si=HjtM0b6BBiggS8O5
      */
 
-    if (t.length > s.length) return ""
+    if (t.length > s.length) println ("")
 
     val tCharCount = mutableMapOf<Char, Int>()
     for (char in t) {
