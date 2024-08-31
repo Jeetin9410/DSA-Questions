@@ -54,6 +54,18 @@ Explanation 2:
 */
 fun main() {
     val s = "abbba"
+    /* Approach
+
+    Count Mismatches: Traverse the string and count the number of mismatched characters between the left and right halves
+    of the string.
+
+    Check Conditions:
+    1. If there is exactly one mismatch, then it is possible to change one character and make the string a palindrome.
+    2. If there are zero mismatches, we must check if the string has an odd length. In this case, we can change the middle character to make the string different but still a palindrome.
+    3. For more than one mismatch, it is not possible to make the string a palindrome by changing exactly one character.
+
+    */
+
     println(solve(s))
 
 }
