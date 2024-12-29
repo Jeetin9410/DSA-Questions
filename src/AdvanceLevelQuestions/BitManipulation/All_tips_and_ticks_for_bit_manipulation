@@ -1,0 +1,19 @@
+// Cyclic Permutation --> question trick also to remember
+
+Ques: What is MSB and LSB with example?
+Ans: Most Significant Bit (MSB) : The MSB is the leftmost bit in a binary number.
+
+
+
+                                                        1. Basic Bitwise Operations
+                        & (AND): x & y – sets bits only where both x and y have bits set to 1.
+                        | (OR): x | y – sets bits if either x or y has bits set to 1.
+                        ^ (XOR): x ^ y – sets bits if either x or y has bits set, but not both.
+                        ~ (NOT): ~x – flips all bits in x.
+                        << (Left Shift): x << n – shifts bits of x left by n positions, filling with 0s on the right.
+                        >> (Right Shift): x >> n – shifts bits of x right by n positions, keeping the leftmost bit for sign extension.
+                        >>> (Unsigned Right Shift): x >>> n – shifts bits right and fills the leftmost bits with 0, ignoring the sign.
+
+                                                        2. Check if a Number is Odd or Even
+                        Ans : (x & 1) == 0;
+                        A number x is even if its least significant bit (LSB) is 0; otherwise, it's odd.
