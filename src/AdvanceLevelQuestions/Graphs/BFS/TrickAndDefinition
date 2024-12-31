@@ -1,0 +1,18 @@
+The algorithm starts from a given source and explores all reachable vertices from the given source.
+It is similar to the Breadth-First Traversal of a tree. Like tree, we begin with the given source
+(in tree, we begin with root) and traverse vertices level by level using a queue data structure.
+The only catch here is that, unlike trees, graphs may contain cycles, so we may come to the same node again.
+To avoid processing a node more than once, we use a boolean visited array.
+
+Initialization: Enqueue the given source vertex into a queue and mark it as visited.
+
+1. Exploration: While the queue is not empty:
+        Dequeue a node from the queue and visit it (e.g., print its value).
+        For each unvisited neighbor of the dequeued node:
+            a) Enqueue the neighbor into the queue.
+            b) Mark the neighbor as visited.
+2. Termination: Repeat step 2 until the queue is empty.
+
+    This algorithm ensures that all nodes in the graph are visited in a breadth-first manner,
+    starting from the starting node.
+
