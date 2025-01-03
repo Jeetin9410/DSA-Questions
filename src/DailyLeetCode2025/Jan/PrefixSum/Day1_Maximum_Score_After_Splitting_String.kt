@@ -1,4 +1,4 @@
-package DailyLeetCode2025.Jan
+package DailyLeetCode2025.Jan.PrefixSum
 
 //link : https://leetcode.com/problems/maximum-score-after-splitting-a-string?envType=daily-question&envId=2025-01-01
 
