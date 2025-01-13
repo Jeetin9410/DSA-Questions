@@ -11,7 +11,7 @@ public class BalanceParanthesesII {
     public static int solve(String A) {
         int len = A.length();
         Stack<Character> stack = new Stack();
-        for(char c : A.toCharArray()){
+        for(char c : A.toCharArray()) {
             if(c == '{' || c == '[' || c == '(') {
                 stack.push(c);
                 continue;

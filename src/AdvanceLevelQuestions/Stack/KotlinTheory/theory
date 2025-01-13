@@ -1,0 +1,29 @@
+                                                      STACK
+Kotlin doesn't have a built-in Stack class,
+                            but
+you can use collections like MutableList, ArrayDeque, or LinkedList to implement stack functionality.
+
+Among these, ArrayDeque is preferred because it is more efficient due to its optimized double-ended queue implementation.
+
+                                            ArrayDeque
+
+    ArrayDeque in Kotlin (and Java) is a double-ended queue that allows elements
+    to be added or removed from both ends efficiently.
+
+    It is implemented as a resizable array and is part of the Kotlin Collections framework.
+
+    In Kotlin, ArrayDeque is a flexible and efficient choice for implementing stacks or queues due to
+    its constant time complexity (O(1)) for most operations.
+
+
+    Key Features of ArrayDeque
+        1. Dynamic Resizing
+            Automatically resizes its internal array when full, ensuring efficient use of memory.
+
+        2. Efficient Operations
+            Additions and removals from both ends (front and rear) are
+            O(1) in most cases.
+
+        3. Non-Synchronized
+            ArrayDeque is not thread-safe. If thread safety is required, external synchronization is necessary.
+
