@@ -1,6 +1,7 @@
 package DailyLeetCode2025.Jan.Array_and_Hashing;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Day14_Find_the_Prefix_Common_Array_of_Two_Arrays {
     /* Leetcode 2657
@@ -48,7 +49,39 @@ It is guaranteed that A and B are both a permutation of n integers.
         int[] A = {1,3,2,4};
         int[] B = {3,1,2,4};
 
-        System.out.println(Arrays.toString(solution2(A,B)));
+        System.out.println(Arrays.toString(solution3(A,B)));
+    }
+
+    public static int[] solution3(int[] A, int[] B) {
+        /* Approach :
+           A[] is subset b[]  --> A will have all element of B
+           Which means every element will surely have frequency of 2.
+
+           for every index --> if put the number of A and B in map or either increase is frequency by one --> if frequency is 2--> increment count
+
+           store count in result
+
+         */
+        int n = A.length;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int[] result = new int[n];
+        int count = 0;
+
+        for(int i =0; i<n; i++) {
+            map.put(A[i], map.getOrDefault(A[i], 0)+1);
+            if(map.get(A[i]) == 2) {
+                count++;
+            }
+
+            map.put(B[i], map.getOrDefault(B[i], 0)+1);
+            if(map.get(B[i]) == 2) {
+                count++;
+            }
+
+            result[i] = count;
+        }
+
+        return result;
     }
 
     public static int[] solution2(int[] A, int[] B) {
