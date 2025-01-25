@@ -1,4 +1,4 @@
-package AdvanceLevelQuestions.Arrays;
+package AdvanceLevelQuestions.Arrays.KadaneAlgoWithVariations;
 
 public class MaxSubarraySum {
     /*
