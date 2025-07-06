@@ -9,7 +9,7 @@ Welcome to the DSA Problem Solutions repository! This repository contains soluti
 # Problem Categories
 The problems in this repository are organized into several categories, including but not limited to:
 
-* AdvanceLevelQuestions:
+* old.AdvanceLevelQuestions:
     - Arrays 
         - Add One To Number
         - Continuous Sum Query K Begger problem
