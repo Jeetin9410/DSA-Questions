@@ -1,6 +1,4 @@
 package old.Jan.Strings;
-
-import jdk.internal.util.xml.impl.Pair;
 import java.util.HashSet;
 
 // Leetcode: 1930

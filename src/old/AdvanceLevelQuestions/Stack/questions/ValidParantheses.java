@@ -1,7 +1,5 @@
 package old.AdvanceLevelQuestions.Stack.questions;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 import java.util.Stack;
 
 public class ValidParantheses {
